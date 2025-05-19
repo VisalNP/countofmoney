@@ -1,0 +1,83 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-g-primary-bg text-g-primary-text antialiased font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-g-primary-text; /* Ensure headings also use primary text color */
+  }
+
+  h1 { @apply text-3xl mb-6; } /* Increased bottom margin slightly */
+  h2 { @apply text-2xl mb-4; }
+  h3 { @apply text-xl mb-3; }
+
+  p {
+    @apply text-g-secondary-text mb-3; /* Paragraphs often use secondary text color */
+  }
+
+  a {
+    /* More subtle link color, perhaps just an underline on hover or slightly lighter text */
+    @apply text-g-accent-blue hover:underline; 
+    /* Or for very minimal:
+    @apply text-g-primary-text hover:text-g-secondary-text underline-offset-2 hover:underline;
+    */
+  }
+
+  /* --- Buttons --- */
+  .btn { /* Base button class */
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent
+           text-sm font-medium rounded-md shadow-sm focus:outline-none 
+           focus:ring-2 focus:ring-offset-2 focus:ring-offset-g-primary-bg;
+  }
+
+  .btn-primary { /* For main call-to-action buttons */
+    @apply btn bg-g-accent-blue text-white hover:bg-g-accent-blue-hover focus:ring-g-accent-blue;
+    /* Example: Run button in AI Studio often has a distinct color */
+  }
+
+  .btn-secondary { /* For less prominent actions */
+    @apply btn bg-g-secondary-bg text-g-primary-text border-g-border hover:bg-g-hover-bg focus:ring-g-input-focus-border;
+  }
+
+  .btn-ghost { /* For icon buttons or very subtle actions */
+    @apply btn bg-transparent text-g-secondary-text hover:bg-g-hover-bg hover:text-g-primary-text focus:ring-g-input-focus-border;
+  }
+  
+  /* --- Forms --- */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="url"],
+  input[type="number"],
+  textarea,
+  select {
+    @apply block w-full bg-g-input-bg border-g-input-border rounded-md shadow-sm 
+           py-2 px-3 text-g-primary-text placeholder-g-tertiary-text
+           focus:outline-none focus:ring-1 focus:ring-g-input-focus-border focus:border-g-input-focus-border 
+           sm:text-sm;
+  }
+
+  label {
+    @apply block text-sm font-medium text-g-secondary-text mb-1;
+  }
+
+  /* --- Cards --- */
+  .card {
+    @apply bg-g-secondary-bg p-4 sm:p-6 rounded-lg shadow-g-card;
+    /* Google AI Studio cards sometimes have very subtle or no borders, relying on bg difference */
+  }
+}
+
+/* You can add more @layer components here for reusable UI patterns */
+/* For example, a specific style for list items:
+@layer components {
+  .list-item-hoverable {
+    @apply p-2 rounded-md hover:bg-g-hover-bg cursor-pointer;
+  }
+}
+*/

@@ -1,0 +1,25 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+          <Route path="/register" element={<RegisterPage />} />          <Route path="/oauth-callback" element={<OAuthCallbackPage />} />          <Route element={<ProtectedRoute />}>            <Route path="/profile" element={<ProfilePage />} />            <Route path="/crypto/:coingeckoId" element={<CryptoDetailPage />} />          </Route>          <Route path="/admin" element={<AdminProtectedRoute />}>            <Route index element={<AdminDashboardPage />} />            <Route path="cryptos" element={<AdminCryptosPage />} />            <Route path="rss-feeds" element={<AdminRSSFeedsPage />} />            <Route path="preferences" element={<AdminPreferencesPage />} />          </Route>          <Route path="*" element={<div><h2>404 - Page Not Found</h2></div>} />        </Routes>      </div>    </>  );}export default App;
